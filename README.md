@@ -1,0 +1,2 @@
+# Angular-batch
+for class
