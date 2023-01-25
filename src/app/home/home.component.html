@@ -1,0 +1,23 @@
+{{userInfo  | json}}
+
+
+
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+
+
+    <tr *ngFor="let obj of userInfo">
+
+        <td> {{obj.username}}</td>
+
+        <td> {{obj.password}} </td>
+
+
+        <td> <button>Edit</button></td>
+    </tr>
+</table>

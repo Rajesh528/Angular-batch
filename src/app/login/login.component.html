@@ -1,0 +1,54 @@
+
+
+<form #loginForm="ngForm">
+
+
+
+  <th style="padding-right: 10px; text-align: right;"></th>
+  form Valid : {{loginForm.valid}}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+       [(ngModel)]="loginObj.username" name="username" placeholder="Enter email"  #email="ngModel" minlength="6" required>
+      <small id="emailHelp" class="form-text text-muted">
+        We'll never share your email with anyone else.</small>
+        <p style="color: red;"  *ngIf="email.dirty && email.invalid"> Please enter a valid email</p>
+
+        <p style="color: red;"  *ngIf="email.dirty && email.invalid"> Email must contain 6 letters</p>
+        <br>
+
+        valid : {{email.valid}}
+        <br>
+        invalid : {{email.invalid}}
+        <br> dirty : {{email.dirty}}
+<br>
+        pristine : {{email.pristine}}
+        <br>
+
+        touched : {{email.touched}}
+        <br>
+      
+        <br>
+        error  :
+     {{email.errors | json}}
+
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1"
+       [(ngModel)]="loginObj.password"  name="password" placeholder="Password" required>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="submit()" [disabled]="loginForm.invalid">Submit</button>
+
+    <br>
+
+    <!-- <a (click)="move()">Signup </a> -->
+    <a [routerLink]="['/signup']">Signup </a>
+  </form>
+
+  
