@@ -1,1 +1,4 @@
-<p>profile works!</p>
+<h1>Welcome {{username}}</h1>
+
+
+<app-details [data]="username" (messageEvent)="newFunction($event)"></app-details>
