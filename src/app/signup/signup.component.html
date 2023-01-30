@@ -1,13 +1,35 @@
-<form>
+<div class="container">
+    <form #signUp="ngForm">
 
-    <div>
-        <label>User name</label>
-        <input type="text" name="username" [(ngModel)]="signUpObj.username">
-    </div>
+        <div>
+            <label>User name</label>
+            <input type="text" name="username" [(ngModel)]="signUpObj.username"  #username="ngModel" required>
+        </div>
 
-    <div>
-        <label for="password"> Password</label>
-        <input type="password" name="password" [(ngModel)]="signUpObj.password">
-    </div>
-    <button type="submit" (click)="submit()">Submit</button>
-</form>
+        valid: {{username.valid}}
+
+
+        <p style="color: red;"  *ngIf="username.invalid && username.dirty"> pls enter valid user name</p>
+
+        dirty : {{username.dirty}}
+        <br>
+        touched : {{username.touched}}
+        <br>
+        pristine : {{username.pristine}}
+
+    
+        <div>
+            <label for="password"> Password</label>
+            <input type="password" name="password" [(ngModel)]="signUpObj.password" required>
+        </div>
+    
+    
+      Form Valid:   {{signUp.invalid}}
+
+      <br>
+        <button type="submit" (click)="submit()" [disabled]="signUp.invalid">Submit</button>
+    </form>
+
+</div>
+
+
