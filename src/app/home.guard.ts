@@ -10,9 +10,13 @@ export class HomeGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): any {
       
-
-
-     return false;
+var abc = localStorage.getItem('token');
+if(abc != undefined){
+  return true;
+}else{
+  return false;
+}
+     
     }
   
 }

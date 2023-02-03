@@ -23,23 +23,16 @@ public userInfo :any = [
   }
 
 checkUser(user:User){
+var index = this.userInfo.findIndex((obj:any)=>obj.username == user.username && obj.password == user.password);
 
+console.log(index)
 
-for(var a=0; a <this.userInfo.length; a++){
-
-console.log(this.userInfo[a]);
-
-if(this.userInfo[a].username == user.username && this.userInfo[a].password == user.password){
-  console.log("login success")
-
-  return 200;
-}
+if(index == -1){
+ return 201
+}else{
+  return 200
 }
 
-console.log(this.userInfo)
-
-
-return 201;
 }
 
 

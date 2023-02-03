@@ -14,6 +14,7 @@ const routes: Routes = [
   {path:"profile/:id", component:ProfileComponent},
   {path:"",redirectTo:"login", pathMatch:"full"},
   {path:"**",component:ErrorComponent},
+  {path:"superadmin",loadChildren: () =>import('./superadmin/superadmin.module').then(x=>x.SuperadminModule)}
 ];
 
 @NgModule({
