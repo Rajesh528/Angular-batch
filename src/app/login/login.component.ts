@@ -21,38 +21,32 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(public dataSrvc:DataService, public router:Router){
+  constructor(public dataSrvc: DataService, public router: Router) {
 
   }
 
   ngOnInit(): void {
 
-    
+
   }
 
-   public submit (){
-    console.log("submit");
+  public submit() {
+    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
+    var res = this.dataSrvc.checkUser(this.loginObj);
+    if (res == 200) {
+      localStorage.setItem("token", "rajesh123");
 
-    localStorage.setItem("token", "rajesh123");
+      sessionStorage.setItem("token", "uday123");
+      this.router.navigate(['home'])
 
-    sessionStorage.setItem("token","uday123");
-
-    console.log(this.loginObj);
-
-var res = this.dataSrvc.checkUser(this.loginObj);
-console.log(res);
-
-
-if(res == 200){
-  this.router.navigate(['home'])
-
-}else{
-  alert("login failed");
-}
+    } else {
+      alert("login failed");
+    }
   }
 
 
-  move(){
+  move() {
     console.log("asdas");
 
     this.router.navigate(['signup'])
