@@ -47,8 +47,6 @@ export class LoginComponent implements OnInit {
 
 
   move() {
-    console.log("asdas");
-
     this.router.navigate(['signup'])
   }
 
