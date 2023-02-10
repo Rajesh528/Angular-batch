@@ -10,7 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"signup",component:SignupComponent},
-  {path:"home", component:HomeComponent, canActivate:[HomeGuard]},
+  {path:"home", component:HomeComponent},
   {path:"profile/:id", component:ProfileComponent},
   {path:"",redirectTo:"login", pathMatch:"full"},
   {path:"**",component:ErrorComponent},

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { LoginUser } from '../login-user';
 import { User } from '../user';
 
 @Component({
@@ -15,9 +16,9 @@ export class LoginComponent implements OnInit {
   public number: number = 998998989;
   public name: string = "zxczczcz";
 
-  public loginObj: User = {
+  public loginObj: LoginUser = {
     username: "",
-    password: ""
+    password: "",
   }
 
 

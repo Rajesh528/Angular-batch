@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { LoginUser } from './login-user';
 import { User } from './user';
 
 @Injectable({
@@ -6,7 +8,9 @@ import { User } from './user';
 })
 export class DataService {
 
-public userInfo :any = [
+
+  public newData = new Subject<any>();
+public userInfo :LoginUser[] = [
   {username:"rajesh",password:"12345"},
   {username:"haripriya",password:"12345"},
   {username:"uday",password:"12345"},
@@ -40,6 +44,23 @@ registerUser(info:any){
 
 
 this.userInfo.push(info);
+
+}
+
+
+getChanges(){
+
+this.userInfo = [
+    {username:"uday",password:"12345"},
+     {username:"mahesh",password:"12345"}
+   ]
+
+   console.log(this.userInfo);
+  this.newData.next([
+    {username:"uday",password:"12345"},
+    {username:"mahesh",password:"12345"}
+  ])
+  
 
 }
 
